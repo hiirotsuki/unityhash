@@ -1,0 +1,13 @@
+CC := i686-w64-mingw32-gcc
+CFLAGS_MANDATORY = -nostartfiles
+CFLAGS := -ansi -Wall -Wextra
+
+all: unityhash
+
+unityhash: hash.c
+	$(CC) $(CFLAGS_MANDATORY) $(CFLAGS) -I. $? -o $@ $(LDFLAGS)
+
+clean:
+	rm -f unityhash unityhash.exe *.o
+
+.PHONY: clean
